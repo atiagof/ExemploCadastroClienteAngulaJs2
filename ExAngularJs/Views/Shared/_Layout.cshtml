@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <!--Stylo CSS do Bootstrap  - Colar após o carregamento de seu CSS-->
+    @Styles.Render("~/Content/bootstrap.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body ng-app="App">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home","Index")</li>
+                    <li>@Html.ActionLink("Cadastro","CadastroUsuario")</li>
+                    <li>@Html.ActionLink("Consulta","ConsultaUsuario")</li>
+                    <li>@Html.ActionLink("Sobre","Sobre")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @Scripts.Render("~/bundles/jquery")
+    <div class="container-fluid ">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+                <p><a href="#">Link</a></p>
+                <p><a href="#">Link</a></p>
+                <p><a href="#">Link</a></p>
+            </div>
+            <div class="col-sm-8 text-left">
+                <br />
+                @RenderBody()
+            </div>
+            <div class="col-sm-2 sidenav">
+                <div class="well">
+                    <p>ADS</p>
+                </div>
+                <div class="well">
+                    <p>ADS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p>Rodapé estudo SA</p>
+    </footer>
+   
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+
+    <script src="~/Scripts/CadastroUsuario.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "CadastroUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row row-centered">
+        <div class="col-md-10 col-centered">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">CADASTRO</h3>
+                </div>
+                <div class="panel-body row-centered">
+                    <form class="form-horizontal" role="form" ng-controller="FormController" name="FormCad" id="FormCad" novalidate ng-submit="FormCad.$valid && submit()">
+                        <div class="form-group">
+                            <label for="nome" class="col-sm-2 control-label">Nome</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="Nome" placeholder="Nome" ng-model="Usuario.Nome" required width="10px" />
+                            </div>
+                            <div class="col-sm-3 control-group error" ng-if="(FormCad.Nome.$touched || FormCad.$submitted) && FormCad.Nome.$invalid">
+                                <ng-messages for="FormCad.Nome.$error" role="alert">
+                                    <ng-message when="required">
+                                        <span class="alert alert-danger" ng-show="FormCad.Nome.$error.required">Campo Requerido</span>
+                                    </ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" name="Email" placeholder="Email" ng-model="Usuario.Email" required />
+                            </div>
+                            <br />
+                            <div class="col-centered control-group error" ng-if="(FormCad.Email.$touched || FormCad.$submitted) && FormCad.Email.$invalid">
+                                <ng-messages for="FormCad.Email.$error" role="alert">
+                                    <ng-message when="required">
+                                        <span class="alert alert-danger" ng-show="FormCad.Email.$error.required">Campo Requerido</span>
+                                    </ng-message>
+                                    <ng-message when="email" ng-show="FormCad.Email.$error.email">
+                                        <span class="alert alert-danger">Email inválido</span>
+                                    </ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone" class="col-sm-2 control-label">Telefone</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="Telefone" placeholder="Telefone" ng-model="Usuario.Telefone" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" required />
+                            </div>
+                            <br />
+                            <div class="col-sm-6 control-group error" ng-if="(FormCad.Telefone.$touched || FormCad.$submitted) && FormCad.Telefone.$invalid">
+                                <ng-messages for="FormCad.Telefone.$error" role="alert">
+                                    <ng-message when="required">
+                                        <span class="alert alert-danger" ng-show="FormCad.Telefone.$error.required">Campo Requerido</span>
+                                        <div ng-message="pattern">
+                                            <span class="alert alert-danger" ng-show="FormCad.Telefone.$error.pattern">Inf 10 digitos</span>
+                                        </div>
+                                    </ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="celular" class="col-sm-2 control-label">Celular</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="Celular" placeholder="celular" ng-model="Usuario.Celular" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" required />
+                            </div>
+                            <br />
+                            <div class="col-sm-6 control-group error" ng-if="(FormCad.Celular.$touched || FormCad.$submitted) && FormCad.Celular.$invalid">
+                                <ng-messages for="FormCad.Celular.$error" role="alert">
+                                    <ng-message when="required">
+                                        <span class="alert alert-danger" ng-show="FormCad.Celular.$error.required">Campo Requerido</span>
+                                        <div ng-message="pattern">
+                                            <span class="alert alert-danger" ng-show="FormCad.Celular.$error.pattern">Inf 10 digitos</span>
+                                        </div>
+                                    </ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-8">
+                                <button type="submit" class="btn btn-default">ENVIAR</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
